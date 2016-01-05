@@ -1,0 +1,150 @@
+/*
+Theme Name: AV Integra Servis
+Version: 0.1
+Author: Milan Vodicka
+Author URI: milanvodicka.github.io
+*/
+
+body {
+  height: 100%;
+}
+
+a,
+a:visited,
+a:active {
+  color: #d31145;
+  text-decoration: underline;
+}
+
+a:hover {
+  color: #d31145;
+  text-decoration: none;
+}
+
+/** header **/
+.header {
+  margin-top: 20px;
+}
+
+.header__logo img {
+  max-width: 100%;
+}
+
+.header__notice {
+  text-align: right;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 79px;
+  color: #626262;
+}
+
+.header__notice p {
+  margin: 0;
+}
+
+.header__notice__phone-icon {
+  position: relative;
+  top: 3px;
+  left: -8px;
+  color: #626262;
+  border-radius: 22px;
+  padding: 8px;
+  background: #eee;
+}
+
+.header__notice a {
+  color: #626262;
+  text-decoration: none;
+}
+
+/** navbar **/
+.navbar {
+  border-radius: 0;
+  margin: 20px 0 0 0;
+  border: none;
+}
+
+.navbar a,
+.navbar a:visited,
+.navbar a:active {
+  text-decoration: none;
+}
+
+.navbar .navbar-toggle {
+  border: none;
+  border-radius: 0;
+}
+
+/** feature **/
+.feature {
+  max-height: 200px;
+  overflow-y: hidden;
+}
+
+.feature img {
+  width: 100%;
+}
+
+/** footer **/
+.footer {
+  border-top: 1px solid #ddd;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.footer__up a {
+  text-decoration: none;
+}
+
+/** content **/
+.price-list__unit,
+.price-list__note {
+  font-style: italic;
+  color: #777;
+}
+
+.form .form-control:focus {
+  border-color: #888;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 8px rgba(0,0,0,.3);
+}
+
+.form__cantsee {
+  display: none;
+}
+
+/** telefon **/
+@media (max-width: 767px) {
+  .header {
+    margin-top: 30px;
+  }
+
+  .header__logo,
+  .header__notice {
+    text-align: center;
+  }
+
+  .navbar {
+    margin-top: 0;
+  }
+}
+
+/** vacsie ako telefon **/
+@media (min-width: 768px) {
+  .navbar-collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .container-fluid {
+    padding-left: 45px;
+    padding-right: 45px;
+  }
+}
+
+/** monitor **/
+@media (min-width: 1200px) {
+  .container-fluid {
+    padding-left: 90px;
+    padding-right: 90px;
+  }
+}

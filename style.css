@@ -88,7 +88,8 @@ a:hover {
 /** footer **/
 .footer {
   border-top: 1px solid #ddd;
-  padding-top: 10px;
+  margin-top: 20px;
+  padding-top: 20px;
   text-align: center;
 }
 

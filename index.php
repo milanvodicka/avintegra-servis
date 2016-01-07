@@ -5,7 +5,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
-    <title><?php wp_title(); ?></title>
     <link rel="shortcut icon" href="<?= get_template_directory_uri(); ?>/img/favicon.ico"/>
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/style.css?v=1.0">
@@ -18,10 +17,10 @@
     <div class="container-fluid">
         <div class="header row">
             <div class="header__logo col-sm-7">
-                <a href="#"><img src="<?= get_template_directory_uri(); ?>/img/logo.jpg" alt="AV Integra Servis"/></a>
+                <a href="<?=site_url()?>"><img src="<?= get_template_directory_uri(); ?>/img/logo.jpg" alt="AV Integra Servis"/></a>
             </div>
             <div class="header__notice col-sm-5">
-                <p><span class="glyphicon glyphicon-earphone header__notice__phone-icon"></span><a href="tel:00421903704700">+421 903 704 700</a></p>
+                <p><span class="glyphicon glyphicon-earphone header__notice__phone-icon"></span><a href="tel:<?=str_replace('+', '00', str_replace(' ', '', get_option('phone_number')))?>"><?=get_option('phone_number')?></a></p>
             </div>
         </div>
     </div>
@@ -105,30 +104,43 @@
             $('.form form').validate({
                 debug: false,
                 rules: {
-                name: {
+                _name: {
                     required: true,
-                        minlength: 4
-                    },
-                zip: {
-                    rangelength: [5, 5]
-                    },
-                phone: {
-                    required: true,
-                        digits: true,
-                        minlength: 10
-                    },
-                email: {
-                    required: true,
-                        email: true
-                    },
-                city: {
-                    required: true,
-                        minlength: 2
-                    },
-                text: {
-                    required: true,
-                        minlength: 10
+                    minlength: 4
+                },
+                _zip: {
+                    rangelength: {
+                        param: [5, 5],
+                        depends: function() {
+                            var _zip = $('#zip');
+                            _zip.val(_zip.val().replace(' ', ''));
+                            return true;
+                        }
                     }
+                },
+                _phone: {
+                    required: true,
+                    digits: {
+                        depends: function() {
+                            var _phone = $('#phone');
+                            _phone.val(_phone.val().replace(' ', ''));
+                            return true;
+                        }
+                    },
+                    minlength: 10
+                },
+                _email: {
+                    required: true,
+                    email: true
+                },
+                _city: {
+                    required: true,
+                    minlength: 2
+                },
+                _text: {
+                    required: true,
+                    minlength: 10
+                }
             },
                 highlight: function(element) {
                 $(element).closest('.form-group').addClass('has-error');

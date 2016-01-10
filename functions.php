@@ -1,36 +1,44 @@
 <?php
 require __DIR__ . '/form/form.php';
-function avintegra_register_navbar() {
-    register_nav_menu('navbar', 'Navigacia');
-}
 
-function avintegra_active_link_class($classes, $item) {
+// actions
+
+add_action('init', function() {
+    register_nav_menu('navbar', 'Navigacia');
+});
+
+add_action('admin_init', function() {
+    add_settings_field('phone_number', 'Tel. číslo', function() {
+        echo '<input name="phone_number" type="text" id="phone_number" value="' . get_option('phone_number') . '" class="regular-text">';
+    }, 'general');
+    register_setting('general', 'phone_number');
+});
+
+add_action('wp_enqueue_scripts', function() {
+    wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-1.11.3.min.js', [], '', TRUE);
+    wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', ['jquery'], '', TRUE);
+});
+
+// filters
+
+add_filter('nav_menu_css_class' , function($classes, $item) {
     if( in_array('current-menu-item', $classes) ){
         $classes[] = 'active ';
     }
     return $classes;
-}
+} , 10 , 2);
 
-function avintegra_admin() {
-    add_settings_field('phone_number', 'Tel. číslo', 'avintegra_admin_phone_number', 'general');
-    register_setting('general', 'phone_number');
-}
+add_filter('wp_mail_from', function() {
 
-function avintegra_admin_phone_number() {
+    return 'avintegra-servis@avintegra-servis.sk';
+});
 
-    echo '<input name="phone_number" type="text" id="phone_number" value="' . get_option('phone_number') . '" class="regular-text">';
-}
+add_filter('wp_mail_from_name', function() {
 
-add_action('init', 'avintegra_register_navbar');
+    return 'AV Integra Servis';
+});
 
-add_filter('nav_menu_css_class' , 'avintegra_active_link_class' , 10 , 2);
-
-add_theme_support('custom-header', array(
-    'default-image' => get_template_directory_uri() . '/img/featured.jpg',
-    'width' => 1920,
-    'height' => 500,
-    'uploads' => TRUE,
-));
+// shortcodes
 
 add_shortcode('avintegra-form', function() {
     $message = NULL;
@@ -43,6 +51,21 @@ add_shortcode('avintegra-form', function() {
     ]);
 });
 
+add_shortcode('avintegra-phone', function() {
+
+    return get_option('phone_number');
+});
+
+// theme support
+
+add_theme_support('custom-header', array(
+    'width' => 1920,
+    'height' => 500,
+    'uploads' => TRUE,
+));
+
 add_theme_support('title-tag');
 
-add_action('admin_init', 'avintegra_admin');
+add_theme_support('post-thumbnails');
+
+set_post_thumbnail_size(1920, 500, ['center', 'center']);

@@ -5,7 +5,8 @@ function avintegra_form_config() {
     return [
         'template' => 'form_template.php',
         'message_template' => 'message_template.php',
-        'to' => get_bloginfo('admin_email'),
+        //'to' => get_bloginfo('admin_email'),
+        'to' => 'vodas89@gmail.com',
         'subject' => 'Kontaktny formular AV Integra Servis',
         'message' => '<strong>%s</strong>:</br>%s<br/>',
         'ok_message' => 'Vaša požiadavka bola úspešne odoslaná!',
@@ -21,6 +22,9 @@ function avintegra_form_render($templateFile, $data = []) {
     if (!file_exists(__DIR__ . '/' . $templateFile)) {
         throw new Exception(sprintf('Template file %s does not exist!', __DIR__ . '/' . $templateFile));
     }
+    wp_enqueue_script('jquery.validate', get_template_directory_uri() . '/js/jquery.validate.min.js', ['jquery'], '', TRUE);
+    wp_enqueue_script('jquery.validate.messages', get_template_directory_uri() . '/js/messages_sk.min.js', ['jquery', 'jquery.validate'], '', TRUE);
+    wp_enqueue_script('form', get_template_directory_uri() . '/form/form.js', ['jquery', 'jquery.validate', 'jquery.validate.messages'], '', TRUE);
     extract($data);
     ob_start();
     require __DIR__ . '/' . $templateFile;
@@ -46,10 +50,10 @@ function avintegra_form_process($postData, $config) {
     if (
         !empty($postData['_cantsee']) ||
         empty($postData['_name']) ||
-        empty($postData['city']) ||
-        empty($postData['phone']) ||
-        empty($postData['email']) ||
-        empty($postData['text'])
+        empty($postData['_city']) ||
+        empty($postData['_phone']) ||
+        empty($postData['_email']) ||
+        empty($postData['_text'])
     ) {
         $valid = FALSE;
     }

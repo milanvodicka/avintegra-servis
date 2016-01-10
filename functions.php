@@ -56,6 +56,11 @@ add_shortcode('avintegra-phone', function() {
     return get_option('phone_number');
 });
 
+add_shortcode('avintegra-email', function() {
+
+    return get_option('admin_email');
+});
+
 // theme support
 
 add_theme_support('custom-header', array(

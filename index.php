@@ -70,14 +70,14 @@
 
     <!-- feature -->
     <?php if (has_post_thumbnail()): ?>
-        <div class="feature">
+        <div class="feature text-center">
             <?php the_post_thumbnail('post-thumbnail', [
                 'alt' => get_bloginfo('title'),
                 'class' => 'img-responsive',
             ]); ?>
         </div>
     <?php elseif (get_header_image()): ?>
-        <div class="feature">
+        <div class="feature text-center">
             <img src="<?php echo(get_header_image()); ?>" alt="<?php echo(get_bloginfo('title')); ?>" class="img-responsive"/>
         </div>
     <?php endif; ?>

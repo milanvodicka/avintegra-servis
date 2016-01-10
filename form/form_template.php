@@ -1,5 +1,5 @@
 <div class="form row">
-    <div class="col-md-8">
+    <div class="col-md-8 col-md-offset-2">
         <?php if (!empty($message['ok'])): ?>
             <div class="alert alert-success"><?=$message['ok']?></div>
         <?php elseif (!empty($message['error'])): ?>

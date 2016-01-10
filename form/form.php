@@ -5,8 +5,7 @@ function avintegra_form_config() {
     return [
         'template' => 'form_template.php',
         'message_template' => 'message_template.php',
-        //'to' => get_bloginfo('admin_email'),
-        'to' => 'vodas89@gmail.com',
+        'to' => get_bloginfo('admin_email'),
         'subject' => 'Kontaktny formular AV Integra Servis',
         'message' => '<strong>%s</strong>:</br>%s<br/>',
         'ok_message' => 'Vaša požiadavka bola úspešne odoslaná!',

@@ -21,10 +21,6 @@ a:hover {
   text-decoration: none;
 }
 
-.img-rounded {
-  border-radius: 3px;
-}
-
 /** header **/
 .header {
   margin-top: 20px;
@@ -102,6 +98,11 @@ a:hover {
 }
 
 /** content **/
+
+.content img {
+  border-radius: 3px;
+}
+
 .price-list__unit,
 .price-list__note {
   font-style: italic;
@@ -131,6 +132,12 @@ a:hover {
   .navbar {
     margin-top: 0;
   }
+
+  .content img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
 }
 
 /** vacsie ako telefon **/
@@ -153,29 +160,41 @@ a:hover {
     padding-right: 150px;
   }
 
-  /** wordpress **/
-  img.alignright {
+  .content img {
+    margin: 10px 20px 20px 20px;
+  }
+
+  .content img.alignright {
     float: right;
-    margin: 0 0 40px 40px;
+    margin-right: 0;
   }
-  img.alignleft {
+
+  .content img.alignleft {
     float: left;
-    margin: 0 40px 40px 0;
+    margin-left: 0;
   }
-  img.aligncenter {
+
+  .content img.aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
   }
-  .alignright {
+
+  .content .alignright {
     float: right;
   }
-  .alignleft {
+
+  .content .alignleft {
     float: left;
   }
-  .aligncenter {
+
+  .content .aligncenter {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .content ul {
+    display: inline-block;
   }
 }

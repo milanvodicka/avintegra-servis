@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="<?php bloginfo('description'); ?>"/>
     <link rel="shortcut icon" href="<?= get_template_directory_uri(); ?>/img/favicon.ico"/>
-    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/css/bootstrap.min.css">
-    <link rel="stylesheet" href="<?= get_template_directory_uri(); ?>/style.css">
     <?php wp_site_icon(); ?>
     <?php wp_head(); ?>
 </head>
@@ -118,5 +116,12 @@
     </div>
 
     <?php wp_footer(); ?>
+    <script>
+        (function($) {
+            $(function() {
+                $('.content').Chocolat();
+            });
+        })(jQuery);
+    </script>
 </body>
 </html>

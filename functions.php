@@ -17,10 +17,10 @@ add_action('admin_init', function () {
 add_action('wp_enqueue_scripts', function () {
     wp_enqueue_script('jquery', get_template_directory_uri() . '/js/jquery-1.11.3.min.js', [], '', TRUE);
     wp_enqueue_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', ['jquery'], '', TRUE);
-    wp_enqueue_script('chocolat', get_template_directory_uri() . '/js/jquery.chocolat.min.js', ['jquery'], '', TRUE);
+    wp_enqueue_script('swipebox', get_template_directory_uri() . '/swipebox/js/jquery.swipebox.min.js', ['jquery'], '', TRUE);
     wp_enqueue_style('bootstrap', get_template_directory_uri() . '/css/bootstrap.min.css');
     wp_enqueue_style('style', get_template_directory_uri() . '/style.css', ['bootstrap']);
-    wp_enqueue_style('chocolat', get_template_directory_uri() . '/css/chocolat.css');
+    wp_enqueue_style('swipebox', get_template_directory_uri() . '/swipebox/css/swipebox.min.css');
 });
 
 // filters

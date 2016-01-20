@@ -119,7 +119,9 @@
     <script>
         (function($) {
             $(function() {
-                $('.content').Chocolat();
+                $('a.gallery').swipebox({
+                    hideBarsDelay: 5000
+                });
             });
         })(jQuery);
     </script>

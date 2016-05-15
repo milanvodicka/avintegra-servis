@@ -36,7 +36,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <span class="navbar-brand visible-xs-inline">Navigácia</span>
+                <span class="navbar-brand visible-xs-inline">Navigácia <?php $post = get_post(); echo !empty($post->post_title) ? sprintf('<span class="navbar__breadcrumb">%s</span>', $post->post_title) : ''; ?></span>
             </div>
             <?php wp_nav_menu(array(
                 'menu' => 'navbar',

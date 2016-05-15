@@ -43,6 +43,10 @@ add_filter('wp_mail_from_name', function () {
     return 'AV Integra Servis';
 });
 
+// wordpress pridava br
+remove_filter( 'the_content', 'wpautop' );
+remove_filter( 'the_excerpt', 'wpautop' );
+
 // shortcodes
 
 add_shortcode('avintegra-form', function () {

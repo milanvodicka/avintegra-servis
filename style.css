@@ -75,6 +75,14 @@ a:hover {
   border-radius: 0;
 }
 
+.navbar__breadcrumb {
+  color: #666;
+}
+
+.navbar__breadcrumb:before {
+  content: ' / ';
+}
+
 /** feature **/
 .feature {
   max-height: 250px;
@@ -145,10 +153,16 @@ a:hover {
     margin-top: 0;
   }
 
+  .content {
+    line-height: 1.8; /** kvoli jednoduchsiemu klikaniu na linky **/
+  }
+
   .content img {
     display: block;
     max-width: 100%;
     height: auto;
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 

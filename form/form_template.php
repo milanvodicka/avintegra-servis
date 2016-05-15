@@ -7,27 +7,21 @@
         <?php endif; ?>
         <form class="form-horizontal" method="post">
             <div class="form-group">
+                <label for="company" class="col-sm-4 control-label">Názov spoločnosti</label>
+                <div class="col-sm-8">
+                    <input type="text" class="form-control" name="_company" id="company" placeholder="Názov spoločnosti">
+                </div>
+            </div>
+            <div class="form-group">
                 <label for="name" class="col-sm-4 control-label">Meno a priezvisko</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" name="_name" id="name" placeholder="Meno a priezvisko">
                 </div>
             </div>
             <div class="form-group">
-                <label for="street" class="col-sm-4 control-label">Ulica, číslo domu</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="_street" id="street" placeholder="Ulica, číslo domu">
-                </div>
-            </div>
-            <div class="form-group">
                 <label for="city" class="col-sm-4 control-label">Mesto</label>
                 <div class="col-sm-8">
                     <input type="text" class="form-control" name="_city" id="city" placeholder="Mesto">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="zip" class="col-sm-4 control-label">PSČ</label>
-                <div class="col-sm-8">
-                    <input type="text" class="form-control" name="_zip" id="zip" placeholder="PSČ">
                 </div>
             </div>
             <div class="form-group">

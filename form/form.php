@@ -48,6 +48,7 @@ function avintegra_form_process($postData, $config) {
     $valid = TRUE;
     if (
         !empty($postData['_cantsee']) ||
+        empty($postData['_company']) ||
         empty($postData['_name']) ||
         empty($postData['_city']) ||
         empty($postData['_phone']) ||

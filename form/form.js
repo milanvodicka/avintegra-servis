@@ -6,19 +6,13 @@
     $('.form form').validate({
       debug: false,
       rules: {
+        _company: {
+          required: true,
+          minlength: 2
+        },
         _name: {
           required: true,
           minlength: 4
-        },
-        _zip: {
-          rangelength: {
-            param: [5, 5],
-            depends: function () {
-              var _zip = $('#zip');
-              _zip.val(_zip.val().replace(' ', ''));
-              return true;
-            }
-          }
         },
         _phone: {
           required: true,

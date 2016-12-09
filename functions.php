@@ -72,7 +72,7 @@ add_shortcode('avintegra-email', function () {
 
 add_shortcode('avintegra-form-cta', function() {
 
-    return '<div class="well form-cta"><a href="/kontaktny-formular" class="btn btn-danger btn-lg btn-block">Vyplňiť kontaktný formulár</a></div>';
+    return '<div class="well form-cta"><a href="/kontaktny-formular" class="btn btn-danger btn-lg btn-block">Vyplniť kontaktný formulár</a></div>';
 });
 
 // theme support
